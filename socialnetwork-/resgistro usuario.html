@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://i.pinimg.com/originals/ea/1d/97/ea1d9797c9bf3dda7a23b238e5e4b364.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin:0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{ /*contenedor principal*/
+          display: flex;
+          width:30cm;
+          height: 15cm;
+          margin-left: 20%;
+          margin-right: 10%;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .data-entry{
+          justify-content:right;
+          height: 10cm;
+          opacity: 100%;
+          margin-right: 10%;
+        }
+
+        .title{
+          display: flex;
+          margin-left: 15%;
+          margin-right: 15%;
+          height: 1.8cm;
+          width: 200px;
+          justify-content: center;
+          align-items: center;
+          opacity: 80%;
+        }
+
+        .info-user{
+          display: flex;
+          flex-direction: column;
+          align-items:center;
+          justify-content:center;
+          margin-top: 20px ;
+        }
+        
+     
+      
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="data-entry">
+            <div class="title">
+                <h1  style="color:white; font-size:700%; font-family:Arial, Helvetica, sans-serif;">INFINITY</h1>
+            </div>
+            <h3 style="margin: 13%; font-size: 100%; color:rgb(213, 213, 115); font-style: italic; font-weight: 100; justify-content: center;">  ¡ Where ideas gather !</h3>
+            <div class ="info-user">
+                <input type="text" name="user" style="width:130px; box-shadow: 5px 5px 5px rgba(0,0,0,0.5); " placeholder="User or E-mail" id="user">
+                <input type="password" name="password" id="password"  placeholder="Password" style="margin:20px ; width: 110px; box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+                <button id="submitBtn">enter</button>
+                <p style="font-size: small; color:yellow; ">Don´t you have an account ? <a href="" style="color: white;">  ¡Sign in!</a></p>
+                <p style="font-size: small;color:white;">Forgot your <a href="" style="color:yellow">Password</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const userField = document.getElementById("user");
+        const passwordField = document.getElementById("password");
+        const submitButton = document.getElementById("submitBtn");
+
+
+        passwordField.addEventListener('input', replaceWithAsterisks);
+
+        function replaceWithAsterisks() {
+            const inputValue = passwordField.value;
+            const replacedValue = inputValue.replace(/[^\s]/g, '*'); // Replace any character except white space
+            passwordField.value = replacedValue;
+        }
+    </script>
+</body>
+</html>
