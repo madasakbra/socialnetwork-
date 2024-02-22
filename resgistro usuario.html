@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -19,53 +23,93 @@
 
         .container{ /*contenedor principal*/
           display: flex;
-          width: 30cm;
-          height: 10cm;
-          background-color: aqua;
-          opacity: 10%;
+          width:30cm;
+          height: 15cm;
           margin-left: 10%;
-          
-          
+          margin-right: 10%;
+          padding-left: 20px;
+          padding-right: 20px;
+          justify-content: center;
+          align-items: center;
+          border: solid yellow;
+          border-radius: 10px;
+          box-shadow: 5px 5px 60px white;
+          animation: fadeIn;
+          animation-duration: 5s;
         }
 
         .data-entry{
-            background-color: gray;
-            justify-content:right;
-            width: 15cm;
-            height: 10cm;
-            opacity: 100%;
-            margin-right: 10%;
-
-            
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          opacity: 100%;
         }
 
         .title{
-            display: flex;
-            background-color: blueviolet;
-            height: 1.8cm;
-            justify-content: center;
-            align-items: center;
-            
+          display: flex;
+          margin: 20px;        
+          height: 1.8cm;
+          width: 200px;
+          justify-content: center;
+          align-items: center;
+          opacity: 80%;
+          
         }
 
+        .info-user{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 20px;
+        }
         
-
-      
+     .user{
+        border-radius: 10px;
+        box-shadow: 2px 2px 20px rgb(158, 238, 129);
+        
+     }
+       
+     button{
+        transition: box-shadow 0.9s ease-in-out;
+        
+     }
+     
+     button:active{
+        box-shadow:none;
+     }
     </style>
 </head>
 <body>
     <div class="container"> 
-
-    </div>
-    <div class="data-entry">
-        <div class="title">
-            <h1  style="color: silver;">INFINITY</h1>
+        <div class="data-entry">
+            <div class="title">
+                <h1  style="color:white; font-size:700%; font-family:Arial, Helvetica, sans-serif;">INFINITY</h1>
+            </div>
+            <h3 style="margin: 13%; font-size: 100%; color:rgb(213, 213, 115); font-style: italic; font-weight: 100;">  ¡ Where ideas gather !</h3>
+            <div class ="info-user">
+                <input  class="user"  type="text" name="user" style="width:160px; padding: 10px; " placeholder="User or E-mail" id="user">
+                <input   class="user" type="password" name="password" id="password"  placeholder="Password" style="margin:20px ; width: 110px; padding:10px ; ">
+                <button id="submitBtn">enter</button>
+                <p style="font-size: small; color:yellow; ">Don´t you have an account ? <a href="http://127.0.0.1:5500/new%20user.html" style="color: white;">  ¡Sign in!</a></p>
+                <p style="font-size: small;color:white;">Forgot your <a href="" style="color:yellow">Password</a></p>
+            </div>
         </div>
-
-      <div>
-        <h3 style="margin: 3%; font-size: small; color: aliceblue; font-style: italic; font-weight: 100; justify-content: center;">¡Welcome where the ideas gather!</h3>
-      </div>
     </div>
-    
+
+    <script>
+        const userField = document.getElementById("user");
+        const passwordField = document.getElementById("password");
+        const submitButton = document.getElementById("submitBtn");
+
+
+        passwordField.addEventListener('input', replaceWithAsterisks);
+
+        function replaceWithAsterisks() {
+            const inputValue = passwordField.value;
+            const replacedValue = inputValue.replace(/[^\s]/g, '*'); // Replace any character except white space
+            passwordField.value = replacedValue;
+        }
+    </script>
 </body>
 </html>
